@@ -17,6 +17,10 @@ class Fraction:
             temp_num=self.num*other.num
             temp_den=self.den*other.den
             return f"{temp_num}/{temp_den}"
+      def __div__(self,other):
+            temp_num=self.num*other.den 
+            temp_den=self.den*other.num
+            return f"{temp_num}/{temp_den}"
             
                   
             
