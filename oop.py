@@ -8,12 +8,13 @@ class Atm:
 
        # self ->       
        def __init__(self):
-             self.pin=""
-             self.balance=0
-             print(id(self))
-             self.menu()
+             self.__pin=""    # __pin means __ will make it private
+             self.__balance=0  # __pin means actually python read it as _Atm__pin
+                                  #_Atm__pin is true variable
+             print(id(self))      # nothing in python is Truly private
+             self.__menu()
                   
-       def menu(self):
+       def __menu(self):
              user_input=input("""
             hello how would u like to proceed
             choose option
@@ -37,35 +38,37 @@ class Atm:
              else:
                    print("give valid input")
 
-       def createPin():
-             self.pin=input("enter your pin")
+       def createPin(self):
+             self.__pin=input("enter your pin")
              print("pin set !!")
        def deposit(self):
              temp=input("enter pin")
-             if temp==self.pin:
+             if temp==self.__pin:
                    depo=int(input("enter the ammount"))
-                   self.balance+=depo
+                   self.__balance+=depo
                    print("success")
 
              else:
                    print("give valid pin")
        def withdraw(self):
              temp=input("enter pin")
-             if temp==self.pin:
+             if temp==self.__pin:
                    amout=int(input("enter the amount to withdraw"))
-                   if amout<=self.balance:
+                   if amout<=self.__balance:
                          print("amount withdraw is ",amout)
-                         self.balance-=amout
+                         self.__balance-=amout
                    else:
-                         print("insufficient in funds",self.balance)
+                         print("insufficient in funds",self.__balance)
              else:
                    print("invalid pin")
        def checkBalance(self):
              temp=input("enter pin")
-             if temp==self.pin:
-                   print(self.balance)
+             if temp==self.__pin:
+                   print(self.__balance)
              else:
-                   print("invalid pin") 
+                   print("invalid pin")
+
+       
              
                   
              
