@@ -67,6 +67,16 @@ class Atm:
                    print(self.__balance)
              else:
                    print("invalid pin")
+       def set_pin(self,newpin):
+              p=input("enter the old pin")
+              if p==self.__pin:
+                     if type(newpin)==str:
+                            self.__pin=newpin
+                            print("pin changed")
+                     else:
+                            print("give valid input")
+              else:
+                     print("not allowed")
 
        
              
